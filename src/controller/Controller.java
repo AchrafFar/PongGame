@@ -2,10 +2,13 @@ package controller;
 
 import models.Game;
 import models.Messages;
+import java.util.Scanner;
 
-public class Controller implements ControllerInterface{
+public class Controller implements ControllerInterface {
     Game game;
     String statueMessage;
+
+    Scanner scanner = new Scanner(System.in);
 
     public Controller(Game game) {
         this.game = game;
@@ -35,4 +38,25 @@ public class Controller implements ControllerInterface{
     public void PaddleRightDown() {
         this.game.getPaddleRight().setYPaddle(this.game.getPaddleRight().getYPaddle() + 1);
     }
+
+    public void PaddleMove() {
+        String direction = scanner.next();
+        switch (direction) {
+            case "LU":
+                PaddleLeftUp();
+                break;
+            case "LD":
+                PaddleLeftDown();
+                break;
+            case "RU":
+                PaddleRightUp();
+                break;
+            case "RD":
+                PaddleRightDown();
+                break;
+            default:
+                System.out.println("chose only LU, LD, RU or RD");
+        }
+    }
+
 }

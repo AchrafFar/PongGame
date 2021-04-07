@@ -38,4 +38,9 @@ public interface ControllerInterface {
     /**
      * let the paddleRight moves down
      */
+
+    public void PaddleMove();
+    /**
+     * call the scanner and switch four cases of the direction of the paddle
+     */
 }
