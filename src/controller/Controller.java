@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Controller implements ControllerInterface {
     Game game;
     String statueMessage;
+    boolean upDirection = true;
 
     Scanner scanner = new Scanner(System.in);
 
@@ -58,5 +59,33 @@ public class Controller implements ControllerInterface {
                 System.out.println("chose only LU, LD, RU or RD");
         }
     }
+    public void ballRight(){
+        this.game.getBall().setXDirection(this.game.getBall().getXDirection() + 1);
+        if (upDirection){
+            this.game.getBall().setYDirection(this.game.getBall().getYDirection() -1);
+        } else {
+            this.game.getBall().setYDirection(this.game.getBall().getYDirection() +1);
+        }
+        if(this.game.getBall().getYDirection()==0){
+            upDirection = false;
+        }
+        if (this.game.getBall().getYDirection()== game.getHeight()-1){
+            upDirection = true;
+        }
 
+    }
+    public void ballLeft(){
+        this.game.getBall().setXDirection(this.game.getBall().getXDirection() - 1);
+        if(upDirection){
+            this.game.getBall().setYDirection(this.game.getBall().getYDirection() -1);
+        } else {
+            this.game.getBall().setYDirection(this.game.getBall().getYDirection() +1);
+        }
+        if(this.game.getBall().getYDirection()==0){
+            upDirection = false;
+        }
+        if (this.game.getBall().getYDirection()== game.getHeight()-1){
+            upDirection = true;
+        }
+    }
 }

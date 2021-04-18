@@ -6,13 +6,13 @@ public interface ControllerInterface {
     public Game getGame();
 
     /**
-     *return the value of game of the class Game
+     * return the value of game of the class Game
      */
 
     public String getStatueMessage();
 
     /**
-     *return the String value of the StatusMessage
+     * return the String value of the StatusMessage
      */
 
     public void PaddleLeftUp();
@@ -42,5 +42,13 @@ public interface ControllerInterface {
     public void PaddleMove();
     /**
      * call the scanner and switch four cases of the direction of the paddle
+     */
+    public void ballRight();
+    /**
+     * let the ball moves Right and Up at the same Time
+     */
+    public void ballLeft();
+    /**
+     * Let the ball moves Left and Down at the same Time
      */
 }
